@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 100px;
+  z-index: 1000;
+}
+header .logo {
+  max-width: 120px;
+}
+header .toggle {
+  max-width: 60px;
+  cursor: pointer;
+}
+header .logo img,
+header .toggle img {
+  max-width: 100%;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url(pic/bg.jpg);
+  padding: 0 100px !important;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.banner .content {
+  max-width: 550px;
+}
+
+.banner .content h2 {
+  font-size: 2.5em;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+.banner .content p {
+  font-weight: 300;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+  margin: 15px 0 35px;
+  color: white;
+}
+.banner .content h2 span {
+  font-weight: bolder;
+}
+.banner .content .play {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.banner .content .play img {
+  margin-right: 10px;
+  width: 50px;
+}
+.banner .content .play img {
+  transform: scale(1);
+  animation: animated 2s linear infinite;
+}
+@keyframes animated {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(.8);
+  }
+  100% {
+    transform: scale(.5);
+  }
+}
+.sci {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sci li {
+  list-style: none;
+}
+.sci li a {
+  text-decoration: none;
+}
+
+.sci li a img {
+  filter: invert(1);
+  transform: scale(0.6);
+}
+
+.slid {
+  background: url(pic/joker.png);
+  background-size: cover;
+  object-fit: cover;
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 250px / 2);
+  width: 250px;
+  height: 150px;
+  animation: animate 10s linear infinite;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(34, 32, 32);
+  transition: all 0.3s ease;
+}
+.slid:hover {
+  transform: translateY(-20px);
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    background-position: top;
+  }
+  77% {
+    background-position: bottom;
+  }
+}
+
+/* .trailer styling start-------------------- */
+.trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.932);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+}
+.trailer.active {
+  visibility: visible;
+  opacity: 1;
+}
+.trailer video {
+  max-width: 900px;
+  outline: none;
+}
+.trailer .close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  filter: invert();
+  max-width: 30px;
+  cursor: pointer;
+}
+
+
+
+
+/* responsive handle---------------------- */
+@media (max-width: 991px) {
+  header {
+    padding: 20px 50px;
+  }
+  header .logo {
+    max-width: 70px;
+  }
+  header .toggle {
+    max-width: 40px;
+  }
+  .banner {
+    padding: 100px 50px;
+  }
+  .banner .content h2 {
+    font-size: 2em;
+    font-weight: 400;
+    letter-spacing: 0.05;
+  }
+  .banner .content p {
+    font-size: 1em;
+  }
+  .slid {
+    position: relative;
+    bottom: initial;
+    left: 0;
+    width: 250px;
+    height: 150px;
+    margin: 20px 0;
+  }
+  .sci {
+    position: absolute;
+    transform: translateY(-50%);
+    right: initial;
+    top: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .sci li {
+    margin: 0 10px;
+  }
+  .trailer video {
+    max-width: 80%;
+  }
+}
+/* end responsive------------------- */
